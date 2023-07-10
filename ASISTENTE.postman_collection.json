@@ -1,0 +1,426 @@
+{
+	"info": {
+		"_postman_id": "2b3e034b-3744-4174-adb9-e55b649eabd6",
+		"name": "ASISTENTE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15644958"
+	},
+	"item": [
+		{
+			"name": "Bodegas",
+			"item": [
+				{
+					"name": "Bodegas",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idempresa\":1,\r\n    \"idbodega\" : 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://LocalHost:3001/api/v1/Bodega",
+							"protocol": "http",
+							"host": [
+								"LocalHost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"Bodega"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Browse Bodegas",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idempresa\":1,\r\n    \"idbodega\" : 1,\r\n    \"clave\" : \"Ref\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://LocalHost:3001/api/v1/browsebodega",
+							"protocol": "http",
+							"host": [
+								"LocalHost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"browsebodega"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BarraRec",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accion\":1,\r\n    \"referencia\":1,\r\n    \"tabla\" : \"Bodegas\",\r\n    \"campo\" : \"IDBodega\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://LocalHost:3001/api/v1/barrarec",
+							"protocol": "http",
+							"host": [
+								"LocalHost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"barrarec"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Bodegas",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idempresa\":1,\r\n    \"idbodega\" : 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://LocalHost:3001/api/v1/borrabodegas",
+							"protocol": "http",
+							"host": [
+								"LocalHost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"borrabodegas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetBodegas",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idempresa\": 1\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://LocalHost:3001/api/v1/getbodegas",
+							"protocol": "http",
+							"host": [
+								"LocalHost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"getbodegas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateBodega",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtcHJlc2EiOiI4NzMxOTgwIiwiYXBsaWNhY2lvbiI6IkFTSVNURU5URSIsInNlcmllIjoiIDUwNTAwMzg1OCJ9LCJpYXQiOjE2ODczMTc5NzZ9.A1jyO5E9lgt6DDzWjrWpXtCgoyZQrqyNc5xlm7ZQIH8",
+								"description": "Token de autenticacion",
+								"type": "string"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idempresa\": 1,\r\n    \"idbodega\": 1,\r\n    \"descripcion\": \"Bodega GENERAL\",\r\n    \"tipobodega\": \"1\",\r\n    \"costea\": 1,\r\n    \"consignacion\":0,\r\n    \"restituye\":1,\r\n    \"usuario\":\"ehernandez\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://LocalHost:3001/api/v1/updatebodegas",
+							"protocol": "http",
+							"host": [
+								"LocalHost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"updatebodegas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreaBodega",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtcHJlc2EiOiI4NzMxOTgwIiwiYXBsaWNhY2lvbiI6IkFTSVNURU5URSIsInNlcmllIjoiIDUwNTAwMzg1OCJ9LCJpYXQiOjE2ODczMTc5NzZ9.A1jyO5E9lgt6DDzWjrWpXtCgoyZQrqyNc5xlm7ZQIH8",
+								"description": "Token de autenticacion",
+								"type": "string"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idempresa\": 1,\r\n    \"descripcion\": \"Bodega TRES\",\r\n    \"tipobodega\": \"1\",\r\n    \"costea\": true,\r\n    \"consignacion\": false,\r\n    \"restituye\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://LocalHost:3001/api/v1/creabodegas",
+							"protocol": "http",
+							"host": [
+								"LocalHost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"creabodegas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtcHJlc2EiOiI4NzMxOTgwIiwiYXBsaWNhY2lvbiI6IkFTSVNURU5URSIsInNlcmllIjoiIDUwNTAwMzg1OCJ9LCJpYXQiOjE2ODczMTc5NzZ9.A1jyO5E9lgt6DDzWjrWpXtCgoyZQrqyNc5xlm7ZQIH8",
+								"description": "Token de autenticacion",
+								"type": "string"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usuario\":\"ehernandez\",\r\n    \"clave\" : \"V$123bcd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://LocalHost:3001/api/v1/login",
+							"protocol": "http",
+							"host": [
+								"LocalHost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreaUsuario",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtcHJlc2EiOiI4NzMxOTgwIiwiYXBsaWNhY2lvbiI6IkFTSVNURU5URSIsInNlcmllIjoiIDUwNTAwMzg1OCJ9LCJpYXQiOjE2ODczMTc5NzZ9.A1jyO5E9lgt6DDzWjrWpXtCgoyZQrqyNc5xlm7ZQIH8",
+								"description": "Token de autenticacion",
+								"type": "string"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idempresa\": 1,\r\n    \"usuariocrea\":\"ehernandez\",\r\n    \"usuario\":\"vhernandez\",\r\n    \"descripcion\":\"Valentina Hernandez R\",\r\n    \"email\":\"lr@gmail.com\",\r\n    \"clave\":\"A$123bcd\",\r\n    \"idperfil\":1\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://LocalHost:3001/api/v1/creausuario",
+							"protocol": "http",
+							"host": [
+								"LocalHost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"creausuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"empresa\" : \"8731980\",\r\n    \"aplicacion\" : \"ASISTENTE\",\r\n    \"serie\": \" 505003858\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://LocalHost:3001/api/v1/Registro",
+							"protocol": "http",
+							"host": [
+								"LocalHost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"Registro"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Catalogo y afines",
+			"item": [
+				{
+					"name": "CreaCatalogo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtcHJlc2EiOiI4NzMxOTgwIiwiYXBsaWNhY2lvbiI6IkFTSVNURU5URSIsInNlcmllIjoiIDUwNTAwMzg1OCJ9LCJpYXQiOjE2ODczMTc5NzZ9.A1jyO5E9lgt6DDzWjrWpXtCgoyZQrqyNc5xlm7ZQIH8",
+								"description": "Token de autenticacion",
+								"type": "string"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idempresa\": 1,\r\n    \"iditem\":5,\r\n    \"descripcion\": \"Bodega TRES\",\r\n    \"fabricante\":\"TQ\",\r\n    \"sku\": \"0\",\r\n    \"generico\": \"Acetamonofen\",\r\n    \"unidad\":1,\r\n    \"grupo\":\"General\",\r\n    \"usuario\":\"ehernandez\"\r\n\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://LocalHost:3001/api/v1/creaitem",
+							"protocol": "http",
+							"host": [
+								"LocalHost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"creaitem"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GetEmpresa",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtcHJlc2EiOiI4NzMxOTgwIiwiYXBsaWNhY2lvbiI6IkFTSVNURU5URSIsInNlcmllIjoiIDUwNTAwMzg1OCJ9LCJpYXQiOjE2ODc4OTk1ODR9.gbmu8Xc0mM0gqC4-D0RFyiOan-AL-EnoLUIrERCRubY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"empresa\" : \"8731980\",\r\n    \"aplicacion\" : \"ASISTENTE\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://LocalHost:3001/api/v1/getempresa",
+					"protocol": "http",
+					"host": [
+						"LocalHost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"v1",
+						"getempresa"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
