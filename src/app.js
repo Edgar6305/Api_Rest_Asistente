@@ -9,7 +9,7 @@ const colors = require("colors");
 const bot = require("./utilidades/telegram.js")
 
 //instances
-const PORT=process.env.PORT || 3001
+const PORT=process.env.PORT || 4001
 const app = express();
 
 //express config
@@ -30,10 +30,13 @@ app.use("/api/v1", require("./routes/catalogo.js"))
 
 app.use("/api/v1", require("./routes/utilidades.js"))
 app.use("/api/v1", require("./routes/storage.js"))
+app.use("/api/v1", require("./routes/gruposItem.js"))
+
+app.use("/api/v1", require("./routes/iva.js"))
 
 //listener
 app.listen(PORT, () => {
-  console.log("API server listening on port 3001");
+  console.log("API server listening on port 4001");
 }); 
 
 //bot.sendBot("1228075428", "Hola desde Index")

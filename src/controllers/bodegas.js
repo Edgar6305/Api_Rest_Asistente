@@ -5,7 +5,7 @@ const {httpError} = require("../helpers/handelError.js")
 const bodega=async (req, res) => {
     try {
         await sql.connect(config)
-        var result = await sql.query`Suelect * From Bodegas WHERE IDEmpresa= ${req.body.idempresa} AND IDBodega= ${req.body.idbodega}`
+        var result = await sql.query`Select * From Bodegas WHERE IDEmpresa= ${req.body.idempresa} AND IDBodega= ${req.body.idbodega}`
         if (result.rowsAffected[0] == 0){
             res.status(500).json({"status": 'FALLO', "Mensaje" : "Bodega NO registrada, Verifique"})
         }else{
@@ -108,5 +108,6 @@ const browsebodega=async (req, res) => {
         httpError(res, error)
     }
 }
+
 
 module.exports = { bodega, getbodegas, updatebodegas, borrabodegas, creabodegas, browsebodega}

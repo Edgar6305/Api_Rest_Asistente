@@ -1,9 +1,9 @@
 // Base de Datos SQL SERVER
 const config = {
-    user: 'sisma_app',
-    password: 'V$123bcd',
+    user: 'sa',
+    password: 'A$123bcd',
     database: 'ASISTENTE',
-    server: PORT=process.env.PORT || 'LocalHost',
+    server: '18.229.172.128',
     port: 1433,
     pool: {
         max: 10,
