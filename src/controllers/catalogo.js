@@ -65,7 +65,7 @@ const findItemExistencia=async (req, res) => {
         let mysql="SELECT Existencias. *, Bodegas.Descripcion AS Desbodega, GrupoIva.Descripcion AS DesIva "
         mysql+=   "FROM dbo.Existencias INNER JOIN dbo.GrupoIva ON dbo.Existencias.IDGrupoIva = dbo.GrupoIva.IDGrupoIva INNER JOIN "
         mysql+=   "dbo.Bodegas ON dbo.Existencias.IDEmpresa = dbo.Bodegas.IDEmpresa AND dbo.Existencias.IDBodega = dbo.Bodegas.IDBodega "
-        mysql+=   "WHERE Existencias.IDEmpresa=" + req.body.empresa + " AND IDItem=" + req.body.item
+        mysql+=   "WHERE Existencias.IDEmpresa=" + req.body.empresa + " AND Existencias.IDItem=" + req.body.item
         await sql.connect(config)
         var result = await sql.query(mysql) 
         //console.log(mysql)
@@ -81,10 +81,72 @@ const findItemExistencia=async (req, res) => {
     }
 }
 
+const findBodegaItemExistencia=async (req, res) => {
+    try {
+        let mysql="SELECT Existencias. *, Bodegas.Descripcion AS Desbodega, GrupoIva.Descripcion AS DesIva "
+        mysql+=   "FROM dbo.Existencias INNER JOIN dbo.GrupoIva ON dbo.Existencias.IDGrupoIva = dbo.GrupoIva.IDGrupoIva INNER JOIN "
+        mysql+=   "dbo.Bodegas ON dbo.Existencias.IDEmpresa = dbo.Bodegas.IDEmpresa AND dbo.Existencias.IDBodega = dbo.Bodegas.IDBodega "
+        mysql+=   "WHERE Existencias.IDEmpresa=" + req.body.empresa + " AND Existencias.IDBodega=" + req.body.bodega  + " AND Existencias.IDItem=" + req.body.item 
+        await sql.connect(config)
+        var result = await sql.query(mysql) 
+        console.log(result)
+        if (result.rowsAffected[0] == 0){
+            res.status(500).json({"status": 'NO', "Mensaje" : "Item NO declarado en esta Bodega"})
+        }else{
+            res.status(200).json({"status": 'OK', "Data" : result.recordset[0]})
+        }
+
+    } catch (error) {
+        error.origen='controllers/findBodegaItemExistencia'
+        httpError(res, error)
+    }
+}
+
+
+const CreaItemExistencia = async (req, res) => {
+    try {
+        await sql.connect(config)
+        var mysql = "EXEC PA_CreaItemExistencia " + req.body.empresa + "," + req.body.bodega + "," + req.body.item + "," + req.body.valorventa + "," + req.body.grupoiva + ","
+        mysql    += req.body.minimo + "," + req.body.maximo + ",'" + req.body.ubicacion + "'," + req.body.descuento
+        console.log(mysql)
+        var result = await sql.query(mysql)
+        if (result.rowsAffected[0] == 0) {
+            res.status(500).json({ "status": result.recordset[0].OK, "Mensaje": result.recordset[0].Mensaje })
+        } else {
+            res.status(200).json({ "status": result.recordset[0].OK, "Mensaje": result.recordset[0].Mensaje, "Registro": result.recordset[0].ID })
+        }
+        console.log(result.recordset[0])
+    } catch (error) {
+        error.origen = 'controllers/CreaItemExistencia'
+        httpError(res, error)
+    }
+}
+
+const UpdateItemExistencia = async (req, res) => {
+    try {
+        await sql.connect(config)
+        var mysql = "EXEC PA_UpdateItemExistencia " + req.body.empresa + "," + req.body.bodega + "," + req.body.item + "," + req.body.valorventa + "," + req.body.grupoiva + ","
+        mysql    += req.body.minimo + "," + req.body.maximo + ",'" + req.body.ubicacion + "'," + req.body.descuento
+        console.log(mysql)
+        var result = await sql.query(mysql)
+        console.log(result)
+        if (result.rowsAffected[0] == 0) {
+            res.status(500).json({ "status": result.recordset[0].OK, "Mensaje": result.recordset[0].Mensaje })
+        } else {
+            res.status(200).json({ "status": result.recordset[0].OK, "Mensaje": result.recordset[0].Mensaje, "Registro": result.recordset[0].ID })
+        }
+    } catch (error) {
+        error.origen = 'controllers/UpdeteItemExistencia'
+        httpError(res, error)
+    }
+}
 
 module.exports = {
     creaitem,
     getitem,
     finditem,
-    findItemExistencia
+    findItemExistencia,
+    findBodegaItemExistencia,
+    CreaItemExistencia,
+    UpdateItemExistencia
  }

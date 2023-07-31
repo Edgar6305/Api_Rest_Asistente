@@ -8,7 +8,7 @@ const config = {
     pool: {
         max: 10,
         min: 0,
-        idleTimeoutMillis: 1000
+        idleTimeoutMillis: 1500
     },
     options: {
         encrypt: false, // for azure

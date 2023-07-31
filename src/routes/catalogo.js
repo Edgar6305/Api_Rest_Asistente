@@ -7,4 +7,8 @@ router
     .post('/getitem', catalogo.getitem)
     .post('/finditem', catalogo.finditem)
     .post('/findItemExistencia', catalogo.findItemExistencia)
-    module.exports = router
+    .post('/findBodegaItemExistencia', catalogo.findBodegaItemExistencia)
+    .post('/CreaItemExistencia', catalogo.CreaItemExistencia)
+    .post('/UpdateItemExistencia', catalogo.UpdateItemExistencia)    
+
+module.exports = router

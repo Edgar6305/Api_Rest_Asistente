@@ -3,7 +3,7 @@ const {config} = require("../routes/config.js")
 const {httpError} = require("../helpers/handelError.js")
 
 const findGrupoIva=async (req, res) => {
-    console.log(req.body)
+    //console.log(req.body)
     try {
         await sql.connect(config)
         var result = await sql.query`Select * From GrupoIva WHERE IDEmpresa= ${req.body.idEmpresa} AND IDGrupoiva= ${req.body.IdGrupoIva}`

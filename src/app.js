@@ -24,18 +24,19 @@ app.use(cors());
 app.use(express.static("src/storage"))
 
 //express routes 
-app.use("/api/v1", require("./routes/usuarios.js"))
-app.use("/api/v1", require("./routes/bodegas.js"))
-app.use("/api/v1", require("./routes/catalogo.js"))
+app
+  .use("/api/v1", require("./routes/usuarios.js"))
+  .use("/api/v1", require("./routes/bodegas.js"))
+  .use("/api/v1", require("./routes/catalogo.js"))
 
-app.use("/api/v1", require("./routes/utilidades.js"))
-app.use("/api/v1", require("./routes/storage.js"))
-app.use("/api/v1", require("./routes/gruposItem.js"))
+  .use("/api/v1", require("./routes/utilidades.js"))
+  .use("/api/v1", require("./routes/storage.js"))
+  .use("/api/v1", require("./routes/gruposItem.js"))
 
-app.use("/api/v1", require("./routes/iva.js"))
+  .use("/api/v1", require("./routes/iva.js"))
 
-//listener
-app.listen(PORT, () => {
+  //listener
+  .listen(PORT, () => {
   console.log("API server listening on port 4001");
 }); 
 
